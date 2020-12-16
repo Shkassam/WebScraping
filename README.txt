@@ -1,7 +1,7 @@
 WebScraping Discord Bot v.1.03
 
 Requirements:
-Python
+Python 3
 Beautiful Soup Library
 Discord Library
 Random Library
