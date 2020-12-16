@@ -36,7 +36,6 @@ async def on_message(ctx):
 @bot.event
 async def on_ready():
     scrape = theScraper()
-    await bot.get_channel(697974751989203074).send('Bot is Running!')
     bot.bg_task = bot.loop.create_task(scraping(scrape, bot))
 
 @bot.command(name='AddQuote')
@@ -46,5 +45,12 @@ async def addQuote(ctx, *quote):
     quotes.write('\n{}'.format(' '.join(quote)))
     quotes.close()
     await ctx.send('Added!')
+
+@bot.command(name='Poll')
+async def thePolls(ctx, *quote):
+    message = await bot.get_channel(787175932808658954).send(' '.join(quote))
+    await message.add_reaction('✔️')
+    await message.add_reaction('❌')
+
 
 bot.run(TOKEN)
